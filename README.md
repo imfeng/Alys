@@ -28,7 +28,7 @@ On a high level, the repository consists of three parts:
 - Install Alys:
 
 ```shell
-git clone git@github.com:AnduroProject/Alys.git
+git clone git@github.com:AnduroHackathon/Alys.git
 cd Alys 
 cargo build
 ```
