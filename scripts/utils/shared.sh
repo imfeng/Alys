@@ -66,7 +66,7 @@ function evm_address() {
 function pegout() {
     if [ -z $2 ]; then
         # generate a new address for the alice wallet to receive the BTC
-        export BTC_ADDRESS=$(bitcoin-cli -regtest -rpcwallet=alice getnewaddress)
+        export BTC_ADDRESS=$(bitcoin-cli -rpcuser=rpcuser -rpcpassword=rpcpassword -regtest -rpcwallet=alice getnewaddress)
     else
         export BTC_ADDRESS=$2
     fi
@@ -83,7 +83,7 @@ function pegout() {
 
     echo "Waiting for BTC..."
     while true; do
-        result=$(bitcoin-cli -regtest -rpcwallet=alice listreceivedbyaddress 0 false true $BTC_ADDRESS | jq '.[0].amount' -e)
+        result=$(bitcoin-cli -rpcuser=rpcuser -rpcpassword=rpcpassword -regtest -rpcwallet=alice listreceivedbyaddress 0 false true $BTC_ADDRESS | jq '.[0].amount' -e)
 
         if [ $? -eq 0 ]; then
             echo "Received $result BTC"
