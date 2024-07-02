@@ -1,5 +1,5 @@
 if [ -z "$BASE_DIR" ]; then
-    BASE_DIR=$(PWD)
+    BASE_DIR=${PWD}
 fi
 
 function get_log_path() {
