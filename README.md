@@ -28,7 +28,7 @@ On a high level, the repository consists of three parts:
 - Clone Alys repo:
 
 ```shell
-git clone git@github.com:AnduroProject/Alys.git
+git clone git@github.com:AnduroHackathon/Alys.git
 cd Alys 
 ```
 
@@ -266,7 +266,7 @@ bitcoind -rpcuser=rpcuser -rpcpassword=rpcpassword
 
 Each Alys node takes several arguments:
 
-- `chain`: A chain configuration like [chain.json](./data/chain.json)
+- `chain`: A chain configuration like [chain.json](./etc/config/chain.json)
 - `aura-secret-key`: The secret key used to sign blocks by the federation member.
 - `geth-url`: The URL to the geth node for the Alys node.
 - `db-path`: The path where the Alys blocks are stored.
@@ -297,7 +297,7 @@ Node 1
 
 ```shell
 cargo run --bin app -- \
-  --chain data/chain.json \
+  --chain etc/config/chain.json \
   --aura-secret-key 0000000000000000000000000000000000000000000000000000000000000001 \
   --geth-url http://localhost:8551/ \
   --db-path .alys/chain_db0/ \
@@ -314,7 +314,7 @@ Node 2
 
 ```shell
 cargo run --bin app -- \
-  --chain data/chain.json \
+  --chain etc/config/chain.json \
   --aura-secret-key 0000000000000000000000000000000000000000000000000000000000000002 \
   --geth-url http://localhost:8561/ \
   --db-path .alys/chain_db1/ \
@@ -331,7 +331,7 @@ Node 3
 
 ```shell
 cargo run --bin app -- \
-  --chain data/chain.json \
+  --chain etc/config/chain.json \
   --aura-secret-key 0000000000000000000000000000000000000000000000000000000000000003 \
   --geth-url http://localhost:8571/ \
   --db-path .alys/chain_db2/ \
@@ -350,7 +350,7 @@ Node 1
 
 ```shell
 cargo run --bin app -- \
-  --chain data/chain.json \
+  --chain etc/config/chain.json \
   --aura-secret-key 0000000000000000000000000000000000000000000000000000000000000001 \
   --geth-url http://localhost:8551/ \
   --db-path .alys/chain_db0/ \
@@ -368,7 +368,7 @@ Node 2
 
 ```shell
 cargo run --bin app -- \
-  --chain data/chain.json \
+  --chain etc/config/chain.json \
   --aura-secret-key 0000000000000000000000000000000000000000000000000000000000000002 \
   --geth-url http://localhost:8561/ \
   --db-path .alys/chain_db1/ \
@@ -386,7 +386,7 @@ Node 3
 
 ```shell
 cargo run --bin app -- \
-  --chain data/chain.json \
+  --chain etc/config/chain.json \
   --aura-secret-key 0000000000000000000000000000000000000000000000000000000000000003 \
   --geth-url http://localhost:8571/ \
   --db-path .alys/chain_db2/ \
@@ -430,7 +430,7 @@ Running a full node is similar to running a federation node. The main difference
 
 ```shell
 cargo run --bin app -- \
-  --chain data/chain.json \ 
+  --chain etc/config/chain.json \ 
   --geth-url http://localhost:8551/ \
   --db-path .alys/chain_db0/ \
   --rpc-port 3000 \
@@ -594,7 +594,7 @@ The Alys sidechain expects the bridge contract to be pre-deployed at `0xbBbBBBBb
 
 ## Chain Spec
 
-When you start the Alys sidechain it will use a chain spec to configure it's own genesis block based also on the Geth genesis configured above. We provide [`chain.json`](./data/chain.json) for local development assuming three nodes (instructions above) or using `--chain=dev` will start a single node network. See the annotations below for how to configure a new setup:
+When you start the Alys sidechain it will use a chain spec to configure it's own genesis block based also on the Geth genesis configured above. We provide [`chain.json`](./etc/config/chain.json) for local development assuming three nodes (instructions above) or using `--chain=dev` will start a single node network. See the annotations below for how to configure a new setup:
 
 ```json
 {
