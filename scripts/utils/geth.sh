@@ -4,7 +4,7 @@ fi
 
 function get_log_path() {
     local node_NUM=$1
-    echo "${BASE_DIR}/etc/data/geth${node_NUM}.txt"
+    echo "${BASE_DIR}/etc/data/logs/geth${node_NUM}.txt"
 }
 
 function stop_all_geth() {
